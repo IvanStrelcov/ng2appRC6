@@ -48,10 +48,14 @@ declare module "*";
 // Extra variables that live on Global that will be replaced by webpack DefinePlugin
 declare var ENV: string;
 declare var HMR: boolean;
+declare var API_HOST: string;
+declare var API_PORT: string;
 
 interface GlobalEnvironment {
   ENV;
   HMR;
+  API_HOST;
+  API_PORT;
 }
 
 interface Es6PromiseLoader {

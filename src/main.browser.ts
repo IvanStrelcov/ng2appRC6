@@ -1,4 +1,5 @@
 import 'bootstrap/less/bootstrap.less';
+import 'font-awesome/less/font-awesome.less';
 import 'animate.css/animate.css';
 import './assets/css/style.css';
 

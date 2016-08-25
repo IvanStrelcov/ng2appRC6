@@ -14,6 +14,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
 
 /*
  * Webpack Constants
@@ -23,7 +24,8 @@ const METADATA = {
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
-
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 8080;
 /*
  * Webpack configuration
  *
@@ -269,7 +271,11 @@ module.exports = {
     new HtmlElementsPlugin({
       headTags: require('./head-config.common')
     }),
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new DefinePlugin({
+      'API_HOST': JSON.stringify(HOST),
+      'API_PORT': JSON.stringify(PORT)
+    }),
 
   ],
 
