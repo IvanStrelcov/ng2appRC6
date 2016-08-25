@@ -5,7 +5,7 @@ import { Http, Response } from '@angular/http';
 export class UsersListService {
   constructor(private http: Http){}
   getUsers() {
-    return this.http.get(`${API_HOST}${API_PORT}/api/users`)
+    return this.http.get(`/api/users`)
                     .map(user => {
                       try {
                         user.json();
