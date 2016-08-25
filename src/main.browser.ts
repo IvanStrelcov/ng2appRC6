@@ -1,6 +1,7 @@
-/*
- * Angular bootstraping
- */
+import 'bootstrap/less/bootstrap.less';
+import 'animate.css/animate.css';
+import './assets/css/style.css';
+
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { decorateModuleRef } from './app/environment';
 import { ApplicationRef } from '@angular/core';
@@ -24,4 +25,3 @@ export function main(): Promise<any> {
 
 
 bootloader(main);
-

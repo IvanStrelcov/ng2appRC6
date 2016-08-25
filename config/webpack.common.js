@@ -13,6 +13,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 const HtmlElementsPlugin = require('./html-elements-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 /*
  * Webpack Constants
@@ -142,9 +143,17 @@ module.exports = {
        * Returns file content as string
        *
        */
+      // {
+      //   test: /\.css$/,
+      //   loaders: ['to-string-loader', 'css-loader']
+      // },
       {
         test: /\.css$/,
-        loaders: ['to-string-loader', 'css-loader']
+        loader: ExtractTextPlugin.extract('style', 'css')
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('style', 'css!less?sourceMap')
       },
 
       /* Raw loader support for *.html
@@ -162,6 +171,10 @@ module.exports = {
       */
       {
         test: /\.(jpg|png|gif)$/,
+        loader: 'file'
+      },
+      {
+        test: /\.(ttf|eot|svg|woff2?)(.*)?$/,
         loader: 'file'
       }
     ]
@@ -256,6 +269,7 @@ module.exports = {
     new HtmlElementsPlugin({
       headTags: require('./head-config.common')
     }),
+    new ExtractTextPlugin('[name].css')
 
   ],
 
