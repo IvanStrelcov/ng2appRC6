@@ -54,7 +54,8 @@
     "start:hmr": "npm run server:dev:hmr",
     "preversion": "npm test",
     "version": "npm run build",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "postinstall": "npm run build:prod"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.5",
