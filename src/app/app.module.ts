@@ -20,7 +20,7 @@ import { NoContent } from './no-content';
 
 import { HeaderComponent }     from './header';
 
-import { UserListModule }      from './users-list';
+import { UsersListModule }      from './users-list';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -43,7 +43,7 @@ const APP_PROVIDERS = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    UserListModule,
+    UsersListModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

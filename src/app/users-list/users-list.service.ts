@@ -17,7 +17,14 @@ export class UsersListService {
                     })
   }
   getUsersByName(name) {
-    return this.http.get(`${API_HOST}${API_PORT}/api/users?name=${name}`)
-                    .map(user => user.json());
+    return this.http.get(`/api/users?name=${name}`)
+                    .map(user => {
+                      try {
+                        user.json();
+                      }
+                      catch (err) {
+                        console.log(err);
+                      }
+                    })
   }
 }
