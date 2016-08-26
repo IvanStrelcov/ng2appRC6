@@ -55,7 +55,7 @@
     "preversion": "npm test",
     "version": "npm run build",
     "postversion": "git push && git push --tags",
-    "postinstall": "npm run build:prod"
+    "postinstall": "npm run build:dev"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.5",

@@ -1,26 +1,30 @@
-import { NgModule, ApplicationRef } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
-import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
+import { NgModule,
+         ApplicationRef }         from '@angular/core';
+import { BrowserModule }          from '@angular/platform-browser';
+import { FormsModule }            from '@angular/forms';
+import { HttpModule }             from '@angular/http';
+import { RouterModule }           from '@angular/router';
+import { removeNgStyles,
+         createNewHosts }         from '@angularclass/hmr';
 
 /*
  * Platform and Environment providers/directives/pipes
  */
-import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
+import { ENV_PROVIDERS }          from './environment';
+import { ROUTES }                 from './app.routes';
 // App is our top level component
-import { App } from './app.component';
+import { App }                    from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState } from './app.service';
-import { Home } from './home';
-import { About } from './about';
-import { NoContent } from './no-content';
 
-import { HeaderComponent }     from './header';
+import { AppState }               from './app.service';
+import { Home }                   from './home';
+import { About }                  from './about';
+import { NoContent }              from './no-content';
 
-import { UsersListModule }      from './users-list';
+import { HeaderComponent }        from './header';
+
+import { UsersListModule }        from './users-list';
+import { UserProfileModule }      from './user-profile';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -44,6 +48,7 @@ const APP_PROVIDERS = [
     FormsModule,
     HttpModule,
     UsersListModule,
+    UserProfileModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
