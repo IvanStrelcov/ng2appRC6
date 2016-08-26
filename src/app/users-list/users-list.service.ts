@@ -8,10 +8,9 @@ export class UsersListService {
     return this.http.get(`/api/users`)
                     .map(user => {
                       try {
-                        user.json();
+                        return user.json()
                       }
                       catch (err) {
-                        console.log(err);
                         return [];
                       }
                     })
@@ -20,7 +19,7 @@ export class UsersListService {
     return this.http.get(`/api/users?name=${name}`)
                     .map(user => {
                       try {
-                        user.json();
+                        return user.json();
                       }
                       catch (err) {
                         console.log(err);

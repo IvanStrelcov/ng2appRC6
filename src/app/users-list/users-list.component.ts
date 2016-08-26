@@ -22,7 +22,7 @@ export class UsersListComponent {
   getUsers() {
     this.UsersListService.getUsers().subscribe((users: any) => {
       this.users = users;
-      console.log(this.users);
+      console.log(`this.users => ${this.users}`);
     })
   }
 
