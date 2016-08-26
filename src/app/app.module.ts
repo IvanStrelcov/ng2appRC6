@@ -17,14 +17,15 @@ import { App }                    from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 
 import { AppState }               from './app.service';
-import { Home }                   from './home';
-import { About }                  from './about';
+// import { Home }                   from './home';
+// import { About }                  from './about';
 import { NoContent }              from './no-content';
 
 import { HeaderComponent }        from './header';
 
 import { UsersListModule }        from './users-list';
 import { UserProfileModule }      from './user-profile';
+import { UserCreateModule }       from './user-create';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -38,8 +39,6 @@ const APP_PROVIDERS = [
   bootstrap: [ App ],
   declarations: [
     App,
-    About,
-    Home,
     NoContent,
     HeaderComponent
   ],
@@ -49,6 +48,7 @@ const APP_PROVIDERS = [
     HttpModule,
     UsersListModule,
     UserProfileModule,
+    UserCreateModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

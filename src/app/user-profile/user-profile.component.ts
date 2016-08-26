@@ -15,14 +15,12 @@ export class UserProfileComponent implements OnInit{
               private route: ActivatedRoute,
               private router: Router){}
   ngOnInit(){
-    console.log(this.route);
     this.getUser();
-    console.log(this.sub);
   }
 
   ngOnDestroy(){
     if (this.sub) this.sub.unsubscribe();
-    if(this.remove) this.remove.unsubscribe();
+    if (this.remove) this.remove.unsubscribe();
   }
 
   getUser(){
