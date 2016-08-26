@@ -20,7 +20,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
  * Webpack Constants
  */
 const METADATA = {
-  title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+  title: 'Users App',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
@@ -243,7 +243,8 @@ module.exports = {
      */
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+      favicon: 'src/assets/images/logo.png'
     }),
 
     /*
