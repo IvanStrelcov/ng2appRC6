@@ -31,7 +31,6 @@ export class UserProfileComponent implements OnInit{
           .getUser(id)
           .subscribe(user => {
             this.user = user;
-            console.log(this.user);
           });
         });
   }

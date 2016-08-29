@@ -2,39 +2,47 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { UsersListService } from './users-list.service';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'users-list',
   template: require('./users-list.html')
 })
 export class UsersListComponent {
-  users: any;
-  user: any;
-  searchName: any;
-  constructor(private UsersListService: UsersListService,
+  private users: User[];
+  private user: User;
+  public  searchName: string;
+  private searchStream = new Subject<string>();
+  constructor(private _usersListService: UsersListService,
               private router: Router) {}
 
   ngOnInit() {
-    this.searchName = '';
     this.getUsers();
+    this.searchStream
+        .debounceTime(1000)
+        .distinctUntilChanged()
+        .switchMap((input:string) => {
+          if(input){
+            return this._usersListService.getUserByName(input)
+          } else {
+            return this._usersListService.getUsers()
+          }
+        })
+        .subscribe(
+          data => {
+            this.users = data
+          }
+        );
   }
 
   getUsers() {
-    this.UsersListService.getUsers().subscribe((users: any) => {
+    this._usersListService.getUsers().subscribe((users: any) => {
       this.users = users;
     })
   }
 
-  onSearch(name) {
-    if (this.searchName === name) return;
-    if (!name) {
-      this.searchName = '';
-      this.getUsers();
-    } else {
-      this.searchName = name;
-      this.UsersListService.getUsersByName(name).subscribe((users: any) => {
-        this.users = users;
-      });
-    }
+  onSearchName(name: string) {
+    this.searchStream
+        .next(name);
   }
 };
