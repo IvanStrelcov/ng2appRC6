@@ -24,9 +24,6 @@
       <div class="ibox-content">
         <h2>Validation Wizard Form</h2>
         <form id="form" action="" class="wizard-big" (ngSubmit)="onSubmit()">
-          <!-- <a class="btn btn-primary">Account</a>
-          <a class="btn btn-primary">Address</a>
-          <a class="btn btn-primary">Finish</a> -->
           <div *ngIf="currentStep === 1">
             <h2>Account Information</h2>
             <div class="row">
@@ -41,7 +38,7 @@
                 </div>
                 <div class="form-group">
                   <label>Position *</label>
-                  <input id="confirm" name="confirm" type="text" class="form-control required" [(ngModel)]="user.position">
+                  <input id="confirm" name="confirm" type="text" class="form-control required" [(ngModel)]="user.company_position">
                 </div>
                 <div class="form-group drop-box">
                   <label for="file" class="glyphicon glyphicon-cloud-upload">
@@ -72,7 +69,7 @@
                   <input id="company_adress" name="company_adress" type="text" class="form-control required"
                   [(ngModel)]="user.company_adress">
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                   <label>Home number *</label>
                   <input id="home_number" name="home_number" type="number" class="form-control required"
                   [(ngModel)]="user.adress.home_number">
@@ -96,7 +93,7 @@
                   <label>Code *</label>
                   <input id="code" name="code" type="text" class="form-control"
                   [(ngModel)]="user.adress.code">
-                </div>
+                </div>-->
               </div>
             </div>
           </div>

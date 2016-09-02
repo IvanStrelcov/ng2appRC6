@@ -1,16 +1,9 @@
 type User = {
-  id: number;
+  user_id: number;
   image: string;
-  position: string;
-  name: string;
+  company_position: string;
+  user_name: string;
   company_adress: string;
   company: string;
   phone: string;
-  adress: {
-    home_number: number,
-    street: string,
-    apartment: string,
-    city: string,
-    code: string,
-  }
 }

@@ -15,9 +15,10 @@ import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
 
 export class UserCreateComponent {
   @Input()
+
+  user: any;
   currentStep: number;
   accept: boolean;
-  user: any;
   sub: any;
   uploadFile: any;
   data: any;
@@ -31,18 +32,11 @@ export class UserCreateComponent {
   ngOnInit() {
     this.user = {
       image: '',
-      position: '',
+      company_position: '',
       name: '',
       company_adress: '',
       company: '',
       phone: '',
-      adress: {
-        home_number: '',
-        street: '',
-        apartment: '',
-        city: '',
-        code: '',
-      }
     };
     this.currentStep = 1;
     this.accept = false;

@@ -15,6 +15,6 @@ export class UserComponent implements OnInit{
   }
 
   gotoDetail(user) {
-    this.router.navigate(['/users', this.user.id]);
+    this.router.navigate(['/users', this.user.user_id]);
   }
 };

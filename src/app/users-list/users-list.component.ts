@@ -19,7 +19,7 @@ export class UsersListComponent {
   ngOnInit() {
     this.getUsers();
     this.searchStream
-        .debounceTime(1000)
+        .debounceTime(500)
         .distinctUntilChanged()
         .switchMap((input:string) => {
           if(input){

@@ -17,7 +17,7 @@ export class UsersListService {
                     })
   }
   getUserByName(name) {
-    return this.http.get(`/api/users?name=${name}`)
+    return this.http.get(`/api/users/search?name=${name}`)
                     .map(user => user.json())
                     .catch(error => {
                       return Observable.throw(new Error(error))

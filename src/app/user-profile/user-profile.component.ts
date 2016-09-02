@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit{
               private route: ActivatedRoute,
               private router: Router){}
   ngOnInit(){
-    this.getUser();
+    this.getUser()
   }
 
   ngOnDestroy(){
@@ -30,13 +30,14 @@ export class UserProfileComponent implements OnInit{
         this.UserProfileService
           .getUser(id)
           .subscribe(user => {
-            this.user = user;
+            if (user.length) this.user = user[0];
+            if (!user.length) this.router.navigate(['/**']);
           });
         });
   }
 
   onRemove(){
-    this.remove = this.UserProfileService.removeUser(this.user.id).subscribe(res => {
+    this.remove = this.UserProfileService.removeUser(this.user.user_id).subscribe(res => {
       this.router.navigate(['/users']);
     })
   }
