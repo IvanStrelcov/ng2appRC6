@@ -46,7 +46,7 @@ app.post('/api/users', function(req, res) {
   });
 });
 
-app.get('/api/users:id', function(req, res) {
+app.get('/api/users/:id', function(req, res) {
   pg.connect(DATABASE_URL, function(err, client, done) {
   if (err) {
     return console.error('error fetching client from pool', err);
