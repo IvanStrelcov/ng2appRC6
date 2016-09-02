@@ -15,12 +15,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/api/users', function(req, res) {
-  pg.connect(DATABASE_URL, function(err, client, done) {
+  if(req.query.name) {
+    pg.connect(DATABASE_URL, function(err, client, done) {
   if (err) {
     return console.error('error fetching client from pool', err);
   }
   client
-    .query('SELECT * FROM users', function(err, result) {
+    .query('SELECT * FROM USERS WHERE LOWER(users.user_name) SIMILAR TO LOWER($1)', [ '%' + req.query.name + '%' ], function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
@@ -28,6 +29,21 @@ app.get('/api/users', function(req, res) {
       done();
     })
   });
+  } else {
+    pg.connect(DATABASE_URL, function(err, client, done) {
+    if (err) {
+      return console.error('error fetching client from pool', err);
+    }
+    client
+      .query('SELECT * FROM users', function(err, result) {
+        if (err) {
+          return console.error('error running query', err);
+        }
+        res.json(result.rows);
+        done();
+      })
+    });
+  }
 });
 
 app.post('/api/users', function(req, res) {
@@ -84,7 +100,7 @@ app.get('/api/users/search', function(req, res) {
     return console.error('error fetching client from pool', err);
   }
   client
-    .query('SELECT * FROM USERS where LOWER(users.user_name) SIMILAR TO LOWER($1)', [ '%' + req.query.name + '%' ], function(err, result) {
+    .query('SELECT * FROM USERS WHERE LOWER(users.user_name) SIMILAR TO LOWER($1)', [ '%' + req.query.name + '%' ], function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
