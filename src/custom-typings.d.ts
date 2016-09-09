@@ -50,12 +50,14 @@ declare var ENV: string;
 declare var HMR: boolean;
 declare var API_HOST: string;
 declare var API_PORT: string;
+declare var API: string;
 
 interface GlobalEnvironment {
   ENV;
   HMR;
   API_HOST;
   API_PORT;
+  API;
 }
 
 interface Es6PromiseLoader {

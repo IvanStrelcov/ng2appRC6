@@ -11,7 +11,7 @@ import { removeNgStyles,
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS }          from './environment';
-import { ROUTES }                 from './app.routes';
+import { routing }                from './app.routes';
 // App is our top level component
 import { App }                    from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
@@ -19,13 +19,18 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState }               from './app.service';
 // import { Home }                   from './home';
 // import { About }                  from './about';
+import { LoginModule }            from './login';
+import { RegisterModule }         from './register';
+import { DashboardModule,
+         DashboardComponent }     from './dashboard';
 import { NoContent }              from './no-content';
 
 import { HeaderComponent }        from './header';
 
-import { UsersListModule }        from './users-list';
+// import { UsersListModule }        from './users-list';
 import { UserProfileModule }      from './user-profile';
 import { UserCreateModule }       from './user-create';
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -39,17 +44,19 @@ const APP_PROVIDERS = [
   bootstrap: [ App ],
   declarations: [
     App,
-    NoContent,
-    HeaderComponent
+    NoContent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    UsersListModule,
-    UserProfileModule,
-    UserCreateModule,
-    RouterModule.forRoot(ROUTES, { useHash: true })
+    // UsersListModule,
+    // UserProfileModule,
+    // UserCreateModule,
+    LoginModule,
+    RegisterModule,
+    DashboardModule,
+    routing
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

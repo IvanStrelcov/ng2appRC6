@@ -5,19 +5,20 @@ import { Router } from '@angular/router';
 import 'rxjs/Rx';
 
 @Injectable()
-export class UsersListService {
+export class RegisterService {
   constructor(private http: Http,
               private router: Router){}
-  getUsers() {
-    return this.http.get(`${API}/users`)
+  postAccaunt() {
+    return this.http.post(`${API}/register`)
                     .map(user => user.json())
                     .catch(error => {
                       this.router.navigate(['/**']);
                       return Observable.throw(new Error(error))
                     })
   }
-  getUserByName(name) {
-    return this.http.get(`${API}/users?name=${name}`)
+
+  checkEmail(email) {
+    return this.http.get(`${API}/check&email=${email}`)
                     .map(user => user.json())
                     .catch(error => {
                       return Observable.throw(new Error(error))

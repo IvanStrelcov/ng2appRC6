@@ -10,7 +10,7 @@ export class UserCreateService {
               private router: Router){}
 
   addUser(user: User) {
-    return this.http.post(`/api/users/`, user)
+    return this.http.post(`${API}/users/`, user)
                     .map(user => user.json())
                     .catch(error => {
                       this.router.navigate(['/**']);

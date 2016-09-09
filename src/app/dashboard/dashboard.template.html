@@ -1,0 +1,24 @@
+<div id="wrapper">
+  <div id="page-wrapper" class="gray-bg">
+    <div class="row border-bottom">
+      <app-header></app-header>
+    </div>
+    <div class="row wrapper border-bottom white-bg page-heading">
+      <div class="col-lg-9">
+        <h2><a routerLink="/dashboard">Users</a></h2>
+        <p><a class="btn btn-primary" routerLink="create">Add New User</a></p>
+      </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="footer">
+      <div class="pull-right">
+          Ivan Strelcov
+      </div>
+      <div>
+          <strong>Copyright</strong> NIX Company &copy; 2016
+      </div>
+    </div>
+  </div>
+</div>

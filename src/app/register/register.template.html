@@ -1,0 +1,36 @@
+<div class="middle-box text-center loginscreen   animated fadeInDown">
+  <div>
+    <div>
+      <h1 class="logo-name">UApp</h1>
+    </div>
+    <h3>Register to UApp</h3>
+    <p>Create account to see it in action.</p>
+    <form class="m-t" role="form" action="" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Name" required="" [(ngModel)]="user.user_name" name="user_name" #user_name="ngModel">
+      </div>
+      <div [hidden]="user_name.valid || user_name.pristine"
+           class="alert alert-danger"> Name is required
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" required="" [(ngModel)]="user.user_email" name="user_email" #user_email="ngModel" (input)="onCheckEmail(user_email)">
+      </div>
+      <div [hidden]="user_email.valid || user_email.pristine"
+           class="alert alert-danger"> Email is required
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required="" [(ngModel)]="user.user_password" name="user_password" #user_password="ngModel">
+      </div>
+      <div [hidden]="user_password.valid || user_password.pristine"
+           class="alert alert-danger"> Password is required
+      </div>
+      <div class="form-group">
+        <div class="checkbox i-checks"><label> <input type="checkbox" [(ngModel)]="accept" name="accept"><i></i> Agree the terms and policy </label></div>
+      </div>
+      <button type="submit" class="btn btn-primary block full-width m-b" [disabled]="!accept">Register</button>
+      <p class="text-muted text-center"><small>Already have an account?</small></p>
+      <a class="btn btn-sm btn-white btn-block" routerLink="/login">Login</a>
+    </form>
+    <p class="m-t"> <small>Strelcov Ivan UApp 2016</small> </p>
+  </div>
+</div>

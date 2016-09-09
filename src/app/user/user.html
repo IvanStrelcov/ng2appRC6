@@ -1,20 +1,22 @@
 <div class="contact-box">
-  <a (click)="gotoDetail()">
+  <a (click)="gotoDetail(user)">
     <div class="col-sm-4">
       <div class="text-center">
-        <img alt="image" class="img-circle m-t-xs img-responsive" width="128px" height="128px" [src]="user.image">
+        <img alt="image" class="img-circle m-t-xs" width="auto" height="78px" [src]="user.image">
         <div class="m-t-xs font-bold">{{user.company_position}}</div>
       </div>
     </div>
     <div class="col-sm-8">
       <h3><strong>{{user.user_name}}</strong></h3>
-      <p><i class="fa fa-map-marker"></i><span>{{user.company_adress}}</span></p>
-      <p>
-        <strong>{{user.company}}</strong>
-      </p>
-      <p>
-         <span title="Phone">P:</span><span>{{user.phone}}</span>
-      </p>
+      <p><i class="fa fa-map-marker"></i>{{user.company_adress}}</p>
+      <address>
+        <p>
+          <strong>{{user.company}}</strong>
+        </p>
+        <p>
+          <abbr title="Phone">P:</abbr><span>{{user.phone}}</span>
+        </p>
+      </address>
     </div>
     <div class="clearfix"></div>
   </a>

@@ -275,7 +275,8 @@ module.exports = {
     new ExtractTextPlugin('[name].css'),
     new DefinePlugin({
       'API_HOST': JSON.stringify(HOST),
-      'API_PORT': JSON.stringify(PORT)
+      'API_PORT': JSON.stringify(PORT),
+      'API': JSON.stringify('http://localhost:8080/api')
     }),
 
   ],

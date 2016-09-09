@@ -1,7 +1,7 @@
 import { NgModule,
          ModuleWithProviders } from '@angular/core';
 import { CommonModule }        from '@angular/common';
-
+import { DashboardRouting } from '../dashboard/dashboard.routes';
 import { UserComponent }       from '../user';
 
 @NgModule({

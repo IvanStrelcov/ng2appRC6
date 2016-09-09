@@ -9,7 +9,7 @@ import { Subject } from 'rxjs/Subject';
   template: require('./users-list.html')
 })
 export class UsersListComponent {
-  private users: User[];
+  private users: User<[]>;
   private user: User;
   public  searchName: string;
   private searchStream = new Subject<string>();
@@ -30,7 +30,7 @@ export class UsersListComponent {
         })
         .subscribe(
           data => {
-            this.users = data
+            this.users = data;
           }
         );
   }

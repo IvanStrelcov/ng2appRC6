@@ -1,4 +1,5 @@
-
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
 /*
  *
  *   INSPINIA - Responsive Admin Theme
@@ -3435,7 +3436,6 @@ video {
 }
 /* WRAPPERS */
 #wrapper {
-  height: 100%;
   width: 100%;
   overflow-x: hidden;
 }
@@ -4378,9 +4378,7 @@ body.mini-navbar.fixed-sidebar .logo-element {
   background-color: #ffffff;
   border: 1px solid #e7eaec;
   padding: 20px;
-  height: 190px;
   margin-bottom: 20px;
-  overflow-y: auto;
 }
 .contact-box > a {
   color: inherit;

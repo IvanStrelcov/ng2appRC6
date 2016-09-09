@@ -14,9 +14,9 @@ import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
 })
 
 export class UserCreateComponent {
-  @Input()
+  // @Input()
 
-  user: any;
+  user: User;
   currentStep: number;
   accept: boolean;
   sub: any;
@@ -33,7 +33,7 @@ export class UserCreateComponent {
     this.user = {
       image: '',
       company_position: '',
-      name: '',
+      user_name: '',
       company_adress: '',
       company: '',
       phone: '',
@@ -59,7 +59,7 @@ export class UserCreateComponent {
   onSubmit() {
     if(!this.accept) return;
     this.sub = this.UserCreateService.addUser(this.user).subscribe((res) => {
-      this.Router.navigate(['users']);
+      this.Router.navigate(['dashboard']);
     });
   }
 

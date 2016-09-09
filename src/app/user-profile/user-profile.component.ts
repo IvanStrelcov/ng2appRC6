@@ -38,7 +38,7 @@ export class UserProfileComponent implements OnInit{
 
   onRemove(){
     this.remove = this.UserProfileService.removeUser(this.user.user_id).subscribe(res => {
-      this.router.navigate(['/users']);
+      this.router.navigate(['dashboard']);
     })
   }
 };

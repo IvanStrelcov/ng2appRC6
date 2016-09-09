@@ -10,7 +10,7 @@ export class UserProfileService {
               private router: Router){}
 
   getUser(id) {
-    return this.http.get(`/api/users/${id}`)
+    return this.http.get(`${API}/users/${id}`)
                     .map(user => user.json())
                     .catch(error => {
                       this.router.navigate(['/**']);
@@ -19,7 +19,7 @@ export class UserProfileService {
   }
 
   removeUser(id) {
-    return this.http.delete(`/api/users/${id}`)
+    return this.http.delete(`${API}/users/${id}`)
                     .map(user => user.json())
                     .catch(error => {
                       this.router.navigate(['/**']);
